@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -6,6 +5,7 @@ import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import NavDropdown from "./NavDropdown";
+import Logo from "./Logo";
 
 // Services dropdown data
 const servicesItems = [
@@ -120,11 +120,7 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center" onClick={closeDropdown}>
-            <span className="text-xl md:text-2xl font-heading font-bold text-brand-darkBlue">
-              GORANTLA <span className="text-brand-blue">INFOTECH</span>
-            </span>
-          </Link>
+          <Logo />
 
           {/* Mobile menu button */}
           <button

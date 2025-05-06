@@ -3,12 +3,12 @@ import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Code, Database, FileSearch, Globe, Briefcase, Users } from 'lucide-react';
 
 interface ServiceCardProps {
   title: string;
   description: string;
-  icon: string;
+  icon: React.ReactNode;
   link: string;
   index: number;
 }
@@ -17,37 +17,37 @@ const serviceData = [
   {
     title: "Application Development",
     description: "Custom-built applications tailored to your unique business requirements and goals.",
-    icon: "🛠️",
+    icon: <Code className="h-6 w-6 text-brand-blue" />,
     link: "/services/application-development"
   },
   {
     title: "Software Consulting",
     description: "Strategic guidance and expertise to help you navigate your digital transformation journey.",
-    icon: "💡",
+    icon: <Briefcase className="h-6 w-6 text-brand-blue" />,
     link: "/services/software-consulting"
   },
   {
     title: "Amazon Cloud Services",
     description: "Harness the power of AWS with our expert deployment and optimization services.",
-    icon: "☁️",
+    icon: <Database className="h-6 w-6 text-brand-blue" />,
     link: "/services/cloud-services"
   },
   {
     title: "QA & Testing Services",
     description: "Comprehensive quality assurance to ensure your software meets the highest standards.",
-    icon: "✓",
+    icon: <FileSearch className="h-6 w-6 text-brand-blue" />,
     link: "/services/qa-testing"
   },
   {
     title: "Project Management",
     description: "End-to-end project coordination with proven methodologies for on-time, on-budget delivery.",
-    icon: "📊",
+    icon: <Globe className="h-6 w-6 text-brand-blue" />,
     link: "/services/project-management"
   },
   {
     title: "Offshore Development",
     description: "Access skilled global talent pools with our dedicated offshore development teams.",
-    icon: "🌎",
+    icon: <Users className="h-6 w-6 text-brand-blue" />,
     link: "/services/offshore-development"
   }
 ];
@@ -83,8 +83,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, lin
       animate={controls}
       className="bg-white rounded-xl shadow-sm hover:shadow-md border border-gray-100 p-6 transition-all duration-300 hover:translate-y-[-5px] group"
     >
-      <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4 text-2xl">
-        <span>{icon}</span>
+      <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
+        {icon}
       </div>
       <h3 className="text-xl font-heading font-semibold text-gray-900 mb-3">{title}</h3>
       <p className="text-gray-600 mb-4">{description}</p>
