@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { LucideIcon } from "lucide-react";
-import { Home, Briefcase, Globe, FileSearch, ChartBar, Building, FileText, Users } from "lucide-react";
+import { Home, Briefcase, Globe, FileSearch, ChartBar, Building, FileText, Users, Code, Database, FileCode } from "lucide-react";
 
 interface DropdownItem {
   title: string;
@@ -20,20 +20,22 @@ interface NavDropdownProps {
 }
 
 const getIcon = (iconName: string) => {
-  const icons: Record<string, LucideIcon> = {
-    home: Home,
-    briefcase: Briefcase,
-    globe: Globe,
-    "file-search": FileSearch,
-    "chart-bar": ChartBar,
-    building: Building,
-    "file-text": FileText,
-    users: Users,
-    folder: Home, // Fallback
+  const icons: Record<string, React.ReactNode> = {
+    "home": <Home size={20} className="text-brand-blue" />,
+    "briefcase": <Briefcase size={20} className="text-brand-blue" />,
+    "globe": <Globe size={20} className="text-brand-blue" />,
+    "file-search": <FileSearch size={20} className="text-brand-blue" />,
+    "chart-bar": <ChartBar size={20} className="text-brand-blue" />,
+    "building": <Building size={20} className="text-brand-blue" />,
+    "file-text": <FileText size={20} className="text-brand-blue" />,
+    "users": <Users size={20} className="text-brand-blue" />,
+    "folder": <Home size={20} className="text-brand-blue" />,
+    "code": <Code size={20} className="text-brand-blue" />,
+    "database": <Database size={20} className="text-brand-blue" />,
+    "file-code": <FileCode size={20} className="text-brand-blue" />
   };
 
-  const Icon = icons[iconName] || Home;
-  return <Icon size={20} className="text-brand-blue" />;
+  return icons[iconName] || <Home size={20} className="text-brand-blue" />;
 };
 
 const NavDropdown: React.FC<NavDropdownProps> = ({ items, viewAllLink, onClose }) => {

@@ -5,99 +5,21 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Code, Database, FileSearch, Globe, Briefcase, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { servicesData } from '@/data/servicesData';
 
-const servicesData = [
-  {
-    id: 'application-development',
-    title: "Application Development",
-    description: "Custom-built applications tailored to your unique business requirements and goals.",
-    icon: <Code className="h-10 w-10 text-brand-blue" />,
-    details: "Our application development services deliver custom software solutions that address complex enterprise challenges. We specialize in creating scalable, secure, and user-friendly applications using modern technologies and best practices.",
-    features: [
-      "Custom enterprise applications",
-      "Web and mobile app development",
-      "Legacy system modernization",
-      "API development and integration",
-      "UI/UX design and implementation",
-      "Maintenance and support"
-    ]
-  },
-  {
-    id: 'software-consulting',
-    title: "Software Consulting",
-    description: "Strategic guidance and expertise to help you navigate your digital transformation journey.",
-    icon: <Briefcase className="h-10 w-10 text-brand-blue" />,
-    details: "Our software consulting services provide strategic guidance to help organizations navigate complex technology decisions. We work closely with your team to understand business objectives and develop tailored technology strategies.",
-    features: [
-      "Technology strategy development",
-      "Digital transformation roadmapping",
-      "Technical debt assessment",
-      "Architecture design and review",
-      "Vendor selection assistance",
-      "IT governance and compliance"
-    ]
-  },
-  {
-    id: 'cloud-services',
-    title: "Amazon Cloud Services",
-    description: "Harness the power of AWS with our expert deployment and optimization services.",
-    icon: <Database className="h-10 w-10 text-brand-blue" />,
-    details: "As an AWS partner, we help organizations migrate, optimize, and manage their cloud infrastructure. Our cloud services enable businesses to leverage the full potential of AWS for improved scalability, security, and cost efficiency.",
-    features: [
-      "Cloud migration and strategy",
-      "AWS architecture and deployment",
-      "Cloud cost optimization",
-      "DevOps implementation",
-      "Managed cloud services",
-      "Security and compliance"
-    ]
-  },
-  {
-    id: 'qa-testing',
-    title: "QA & Testing Services",
-    description: "Comprehensive quality assurance to ensure your software meets the highest standards.",
-    icon: <FileSearch className="h-10 w-10 text-brand-blue" />,
-    details: "Our QA and testing services ensure your software performs flawlessly in real-world conditions. We implement rigorous testing methodologies to identify issues early and ensure your applications meet quality standards.",
-    features: [
-      "Automated and manual testing",
-      "Performance and load testing",
-      "Security testing",
-      "Mobile and cross-browser testing",
-      "Test automation frameworks",
-      "QA process consulting"
-    ]
-  },
-  {
-    id: 'project-management',
-    title: "Project Management",
-    description: "End-to-end project coordination with proven methodologies for on-time, on-budget delivery.",
-    icon: <Globe className="h-10 w-10 text-brand-blue" />,
-    details: "Our project management services ensure successful delivery of complex IT initiatives. We employ industry-standard methodologies and best practices to manage scope, schedule, resources, and risks effectively.",
-    features: [
-      "Agile and traditional methodologies",
-      "Resource planning and allocation",
-      "Risk management",
-      "Status reporting and communication",
-      "Budget monitoring and control",
-      "Stakeholder management"
-    ]
-  },
-  {
-    id: 'offshore-development',
-    title: "Offshore Development",
-    description: "Access skilled global talent pools with our dedicated offshore development teams.",
-    icon: <Users className="h-10 w-10 text-brand-blue" />,
-    details: "Our offshore development services provide access to skilled talent at competitive rates. We manage dedicated teams that integrate seamlessly with your in-house resources for efficient project delivery.",
-    features: [
-      "Dedicated development teams",
-      "Staff augmentation",
-      "Follow-the-sun development model",
-      "Transparent communication",
-      "Knowledge transfer",
-      "Quality control and oversight"
-    ]
-  }
-];
+// Helper function to get the icon component based on icon name
+const getIconByName = (iconName: string) => {
+  const iconMap: Record<string, React.ReactNode> = {
+    "Code": <Code className="h-10 w-10 text-brand-blue" />,
+    "Briefcase": <Briefcase className="h-10 w-10 text-brand-blue" />,
+    "Database": <Database className="h-10 w-10 text-brand-blue" />,
+    "FileSearch": <FileSearch className="h-10 w-10 text-brand-blue" />,
+    "Globe": <Globe className="h-10 w-10 text-brand-blue" />,
+    "Users": <Users className="h-10 w-10 text-brand-blue" />
+  };
+  
+  return iconMap[iconName] || <Code className="h-10 w-10 text-brand-blue" />;
+};
 
 const Services: React.FC = () => {
   return (
@@ -137,7 +59,7 @@ const Services: React.FC = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
                   <div className="w-20 h-20 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0 md:mt-2">
-                    {service.icon}
+                    {getIconByName(service.iconName)}
                   </div>
                   
                   <div className="flex-grow">

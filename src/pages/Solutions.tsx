@@ -5,93 +5,21 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Globe, FileText, ChartBar, Briefcase, FileCode, Building } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { solutionsData } from '@/data/solutionsData';
 
-const solutionsData = [
-  {
-    id: 'digital-transformation',
-    title: "Digital Transformation",
-    description: "Enterprise digital strategy and execution",
-    icon: <Globe className="h-10 w-10 text-brand-blue" />,
-    details: "Our comprehensive digital transformation solutions help enterprises evolve their business models, processes, and customer experiences through strategic implementation of modern technologies.",
-    benefits: [
-      "Streamlined business operations",
-      "Enhanced customer experiences",
-      "Data-driven decision making",
-      "Increased business agility",
-      "Improved competitive advantage"
-    ]
-  },
-  {
-    id: 'cloud-devops',
-    title: "Cloud & DevOps Enablement",
-    description: "Accelerate your development pipeline",
-    icon: <FileText className="h-10 w-10 text-brand-blue" />,
-    details: "Our Cloud & DevOps solutions help organizations implement modern software delivery practices, automate infrastructure, and optimize their cloud environments for maximum efficiency.",
-    benefits: [
-      "Faster release cycles",
-      "Improved reliability and uptime",
-      "Automated infrastructure management",
-      "Reduced operational costs",
-      "Enhanced security posture"
-    ]
-  },
-  {
-    id: 'data-analytics',
-    title: "Data Analytics & AI",
-    description: "Insights-driven business decisions",
-    icon: <ChartBar className="h-10 w-10 text-brand-blue" />,
-    details: "Our data analytics and AI solutions transform raw data into actionable insights, enabling organizations to make informed decisions, identify trends, and gain competitive advantages.",
-    benefits: [
-      "Real-time business intelligence",
-      "Predictive analytics capabilities",
-      "Enhanced customer understanding",
-      "Optimized operational efficiency",
-      "Data-driven product development"
-    ]
-  },
-  {
-    id: 'fintech',
-    title: "Fintech Solutions",
-    description: "Technology for financial services",
-    icon: <Briefcase className="h-10 w-10 text-brand-blue" />,
-    details: "Our fintech solutions help financial institutions modernize their technology infrastructure, enhance security, and deliver innovative customer experiences in an increasingly digital industry.",
-    benefits: [
-      "Regulatory compliance automation",
-      "Enhanced fraud detection",
-      "Seamless payment processing",
-      "Improved customer engagement",
-      "Modernized banking experiences"
-    ]
-  },
-  {
-    id: 'healthcare',
-    title: "Healthcare Solutions",
-    description: "Digital healthcare innovations",
-    icon: <FileCode className="h-10 w-10 text-brand-blue" />,
-    details: "Our healthcare technology solutions help organizations deliver better patient care, streamline operations, and ensure compliance with healthcare regulations and standards.",
-    benefits: [
-      "Enhanced patient engagement",
-      "Streamlined clinical workflows",
-      "Secure health data management",
-      "Remote care capabilities",
-      "Interoperability with healthcare systems"
-    ]
-  },
-  {
-    id: 'retail',
-    title: "Retail Technology",
-    description: "Omnichannel retail experiences",
-    icon: <Building className="h-10 w-10 text-brand-blue" />,
-    details: "Our retail technology solutions help businesses create seamless omnichannel experiences, optimize supply chain operations, and leverage data for personalized customer engagement.",
-    benefits: [
-      "Unified customer experience",
-      "Inventory optimization",
-      "Advanced analytics and insights",
-      "Supply chain visibility",
-      "Personalized marketing capabilities"
-    ]
-  }
-];
+// Helper function to get the icon component based on icon name
+const getIconByName = (iconName: string) => {
+  const iconMap: Record<string, React.ReactNode> = {
+    "Globe": <Globe className="h-10 w-10 text-brand-blue" />,
+    "FileText": <FileText className="h-10 w-10 text-brand-blue" />,
+    "ChartBar": <ChartBar className="h-10 w-10 text-brand-blue" />,
+    "Briefcase": <Briefcase className="h-10 w-10 text-brand-blue" />,
+    "FileCode": <FileCode className="h-10 w-10 text-brand-blue" />,
+    "Building": <Building className="h-10 w-10 text-brand-blue" />
+  };
+  
+  return iconMap[iconName] || <Globe className="h-10 w-10 text-brand-blue" />;
+};
 
 const Solutions: React.FC = () => {
   return (
@@ -131,7 +59,7 @@ const Solutions: React.FC = () => {
                 >
                   <div className="flex items-start gap-5">
                     <div className="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                      {solution.icon}
+                      {getIconByName(solution.iconName)}
                     </div>
                     
                     <div>

@@ -4,55 +4,31 @@ import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Code, Database, FileSearch, Globe, Briefcase, Users } from 'lucide-react';
+import { servicesData } from '@/data/servicesData';
 
 interface ServiceCardProps {
   title: string;
   description: string;
-  icon: React.ReactNode;
+  iconName: string;
   link: string;
   index: number;
 }
 
-const serviceData = [
-  {
-    title: "Application Development",
-    description: "Custom-built applications tailored to your unique business requirements and goals.",
-    icon: <Code className="h-6 w-6 text-brand-blue" />,
-    link: "/services/application-development"
-  },
-  {
-    title: "Software Consulting",
-    description: "Strategic guidance and expertise to help you navigate your digital transformation journey.",
-    icon: <Briefcase className="h-6 w-6 text-brand-blue" />,
-    link: "/services/software-consulting"
-  },
-  {
-    title: "Amazon Cloud Services",
-    description: "Harness the power of AWS with our expert deployment and optimization services.",
-    icon: <Database className="h-6 w-6 text-brand-blue" />,
-    link: "/services/cloud-services"
-  },
-  {
-    title: "QA & Testing Services",
-    description: "Comprehensive quality assurance to ensure your software meets the highest standards.",
-    icon: <FileSearch className="h-6 w-6 text-brand-blue" />,
-    link: "/services/qa-testing"
-  },
-  {
-    title: "Project Management",
-    description: "End-to-end project coordination with proven methodologies for on-time, on-budget delivery.",
-    icon: <Globe className="h-6 w-6 text-brand-blue" />,
-    link: "/services/project-management"
-  },
-  {
-    title: "Offshore Development",
-    description: "Access skilled global talent pools with our dedicated offshore development teams.",
-    icon: <Users className="h-6 w-6 text-brand-blue" />,
-    link: "/services/offshore-development"
-  }
-];
+// Helper function to get the icon component based on icon name
+const getIconByName = (iconName: string) => {
+  const iconMap: Record<string, React.ReactNode> = {
+    "Code": <Code className="h-6 w-6 text-brand-blue" />,
+    "Briefcase": <Briefcase className="h-6 w-6 text-brand-blue" />,
+    "Database": <Database className="h-6 w-6 text-brand-blue" />,
+    "FileSearch": <FileSearch className="h-6 w-6 text-brand-blue" />,
+    "Globe": <Globe className="h-6 w-6 text-brand-blue" />,
+    "Users": <Users className="h-6 w-6 text-brand-blue" />
+  };
+  
+  return iconMap[iconName] || <Code className="h-6 w-6 text-brand-blue" />;
+};
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, link, index }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, iconName, link, index }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: true });
 
@@ -84,7 +60,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, lin
       className="bg-white rounded-xl shadow-sm hover:shadow-md border border-gray-100 p-6 transition-all duration-300 hover:translate-y-[-5px] group"
     >
       <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
-        {icon}
+        {getIconByName(iconName)}
       </div>
       <h3 className="text-xl font-heading font-semibold text-gray-900 mb-3">{title}</h3>
       <p className="text-gray-600 mb-4">{description}</p>
@@ -126,6 +102,14 @@ const ServicesSection: React.FC = () => {
     }
   };
 
+  // Extract needed data from servicesData
+  const serviceCardData = servicesData.map(service => ({
+    title: service.title,
+    description: service.description,
+    iconName: service.iconName,
+    link: `/services/${service.id}`
+  }));
+
   return (
     <section id="services" className="bg-gray-50 py-20 md:py-28">
       <div className="container mx-auto px-4 md:px-6">
@@ -157,12 +141,12 @@ const ServicesSection: React.FC = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {serviceData.map((service, index) => (
+          {serviceCardData.map((service, index) => (
             <ServiceCard
               key={index}
               title={service.title}
               description={service.description}
-              icon={service.icon}
+              iconName={service.iconName}
               link={service.link}
               index={index}
             />

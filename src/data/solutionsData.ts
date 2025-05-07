@@ -6,7 +6,7 @@ export const solutionsData = [
     id: 'digital-transformation',
     title: "Digital Transformation",
     description: "Enterprise digital strategy and execution",
-    icon: <Globe className="h-10 w-10 text-brand-blue" />,
+    iconName: "Globe",
     details: "Our comprehensive digital transformation solutions help enterprises evolve their business models, processes, and customer experiences through strategic implementation of modern technologies.",
     benefits: [
       "Streamlined business operations",
@@ -55,7 +55,7 @@ export const solutionsData = [
     id: 'cloud-devops',
     title: "Cloud & DevOps Enablement",
     description: "Accelerate your development pipeline",
-    icon: <FileText className="h-10 w-10 text-brand-blue" />,
+    iconName: "FileText",
     details: "Our Cloud & DevOps solutions help organizations implement modern software delivery practices, automate infrastructure, and optimize their cloud environments for maximum efficiency.",
     benefits: [
       "Faster release cycles",
@@ -104,7 +104,7 @@ export const solutionsData = [
     id: 'data-analytics',
     title: "Data Analytics & AI",
     description: "Insights-driven business decisions",
-    icon: <ChartBar className="h-10 w-10 text-brand-blue" />,
+    iconName: "ChartBar",
     details: "Our data analytics and AI solutions transform raw data into actionable insights, enabling organizations to make informed decisions, identify trends, and gain competitive advantages.",
     benefits: [
       "Real-time business intelligence",
@@ -153,7 +153,7 @@ export const solutionsData = [
     id: 'fintech',
     title: "Fintech Solutions",
     description: "Technology for financial services",
-    icon: <Briefcase className="h-10 w-10 text-brand-blue" />,
+    iconName: "Briefcase",
     details: "Our fintech solutions help financial institutions modernize their technology infrastructure, enhance security, and deliver innovative customer experiences in an increasingly digital industry.",
     benefits: [
       "Regulatory compliance automation",
@@ -202,7 +202,7 @@ export const solutionsData = [
     id: 'healthcare',
     title: "Healthcare Solutions",
     description: "Digital healthcare innovations",
-    icon: <FileCode className="h-10 w-10 text-brand-blue" />,
+    iconName: "FileCode",
     details: "Our healthcare technology solutions help organizations deliver better patient care, streamline operations, and ensure compliance with healthcare regulations and standards.",
     benefits: [
       "Enhanced patient engagement",
@@ -251,7 +251,7 @@ export const solutionsData = [
     id: 'retail',
     title: "Retail Technology",
     description: "Omnichannel retail experiences",
-    icon: <Building className="h-10 w-10 text-brand-blue" />,
+    iconName: "Building",
     details: "Our retail technology solutions help businesses create seamless omnichannel experiences, optimize supply chain operations, and leverage data for personalized customer engagement.",
     benefits: [
       "Unified customer experience",

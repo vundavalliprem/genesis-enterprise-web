@@ -1,11 +1,24 @@
-
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useParams, Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { solutionsData } from '@/data/solutionsData';
-import { ArrowLeft, Check } from 'lucide-react';
+import { ArrowLeft, Check, Globe, FileText, ChartBar, Briefcase, FileCode, Building } from 'lucide-react';
+
+// Helper function to get the icon component based on icon name
+const getIconByName = (iconName: string) => {
+  const iconMap: Record<string, React.ReactNode> = {
+    "Globe": <Globe className="h-10 w-10 text-brand-blue" />,
+    "FileText": <FileText className="h-10 w-10 text-brand-blue" />,
+    "ChartBar": <ChartBar className="h-10 w-10 text-brand-blue" />,
+    "Briefcase": <Briefcase className="h-10 w-10 text-brand-blue" />,
+    "FileCode": <FileCode className="h-10 w-10 text-brand-blue" />,
+    "Building": <Building className="h-10 w-10 text-brand-blue" />
+  };
+  
+  return iconMap[iconName] || <Globe className="h-10 w-10 text-brand-blue" />;
+};
 
 const SolutionDetail: React.FC = () => {
   const { solutionId } = useParams<{ solutionId: string }>();
@@ -33,14 +46,19 @@ const SolutionDetail: React.FC = () => {
                 <span>Back to Solutions</span>
               </Link>
               
-              <motion.h1 
-                className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-6"
+              <motion.div
+                className="flex items-center gap-4 mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                {solution.title}
-              </motion.h1>
+                <div className="w-14 h-14 bg-blue-400 bg-opacity-20 rounded-lg flex items-center justify-center">
+                  {getIconByName(solution.iconName)}
+                </div>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white">
+                  {solution.title}
+                </h1>
+              </motion.div>
               
               <motion.p 
                 className="text-lg md:text-xl text-blue-100"

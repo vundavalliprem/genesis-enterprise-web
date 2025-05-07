@@ -6,7 +6,7 @@ export const servicesData = [
     id: 'application-development',
     title: "Application Development",
     description: "Custom-built applications tailored to your unique business requirements and goals.",
-    icon: <Code className="h-10 w-10 text-brand-blue" />,
+    iconName: "Code",
     details: "Our application development services deliver custom software solutions that address complex enterprise challenges. We specialize in creating scalable, secure, and user-friendly applications using modern technologies and best practices.",
     features: [
       "Custom enterprise applications",
@@ -56,7 +56,7 @@ export const servicesData = [
     id: 'software-consulting',
     title: "Software Consulting",
     description: "Strategic guidance and expertise to help you navigate your digital transformation journey.",
-    icon: <Briefcase className="h-10 w-10 text-brand-blue" />,
+    iconName: "Briefcase",
     details: "Our software consulting services provide strategic guidance to help organizations navigate complex technology decisions. We work closely with your team to understand business objectives and develop tailored technology strategies.",
     features: [
       "Technology strategy development",
@@ -106,7 +106,7 @@ export const servicesData = [
     id: 'cloud-services',
     title: "Amazon Cloud Services",
     description: "Harness the power of AWS with our expert deployment and optimization services.",
-    icon: <Database className="h-10 w-10 text-brand-blue" />,
+    iconName: "Database",
     details: "As an AWS partner, we help organizations migrate, optimize, and manage their cloud infrastructure. Our cloud services enable businesses to leverage the full potential of AWS for improved scalability, security, and cost efficiency.",
     features: [
       "Cloud migration and strategy",
@@ -156,7 +156,7 @@ export const servicesData = [
     id: 'qa-testing',
     title: "QA & Testing Services",
     description: "Comprehensive quality assurance to ensure your software meets the highest standards.",
-    icon: <FileSearch className="h-10 w-10 text-brand-blue" />,
+    iconName: "FileSearch",
     details: "Our QA and testing services ensure your software performs flawlessly in real-world conditions. We implement rigorous testing methodologies to identify issues early and ensure your applications meet quality standards.",
     features: [
       "Automated and manual testing",
@@ -217,7 +217,7 @@ export const servicesData = [
     id: 'project-management',
     title: "Project Management",
     description: "End-to-end project coordination with proven methodologies for on-time, on-budget delivery.",
-    icon: <Globe className="h-10 w-10 text-brand-blue" />,
+    iconName: "Globe",
     details: "Our project management services ensure successful delivery of complex IT initiatives. We employ industry-standard methodologies and best practices to manage scope, schedule, resources, and risks effectively.",
     features: [
       "Agile and traditional methodologies",
@@ -267,7 +267,7 @@ export const servicesData = [
     id: 'offshore-development',
     title: "Offshore Development",
     description: "Access skilled global talent pools with our dedicated offshore development teams.",
-    icon: <Users className="h-10 w-10 text-brand-blue" />,
+    iconName: "Users",
     details: "Our offshore development services provide access to skilled talent at competitive rates. We manage dedicated teams that integrate seamlessly with your in-house resources for efficient project delivery.",
     features: [
       "Dedicated development teams",
