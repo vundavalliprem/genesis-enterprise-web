@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -91,6 +92,7 @@ const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -101,6 +103,12 @@ const Header: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile menu and dropdowns when route changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setActiveDropdown(null);
+  }, [location]);
+
   const toggleDropdown = (dropdown: string) => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
   };
@@ -109,12 +117,19 @@ const Header: React.FC = () => {
     setActiveDropdown(null);
   };
 
+  // Determine if we're on a page with a dark header background
+  const isDarkHeaderPage = location.pathname === "/" || 
+                           location.pathname === "/about" || 
+                           location.pathname === "/contact" || 
+                           location.pathname.includes("/services/") ||
+                           location.pathname.includes("/solutions/");
+
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-white shadow-md py-3"
+        isScrolled || !isDarkHeaderPage
+          ? "bg-white/95 backdrop-blur-md shadow-lg py-3"
           : "bg-transparent py-6"
       )}
     >
@@ -129,9 +144,15 @@ const Header: React.FC = () => {
             aria-label="Toggle menu"
           >
             <div className="w-6 h-5 flex flex-col justify-between">
-              <span className={`w-full h-0.5 bg-brand-darkBlue transition-all duration-300 ${isMobileMenuOpen ? 'transform rotate-45 translate-y-2' : ''}`}></span>
-              <span className={`w-full h-0.5 bg-brand-darkBlue transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-              <span className={`w-full h-0.5 bg-brand-darkBlue transition-all duration-300 ${isMobileMenuOpen ? 'transform -rotate-45 -translate-y-2' : ''}`}></span>
+              <span 
+                className={`w-full h-0.5 ${isScrolled || !isDarkHeaderPage ? 'bg-brand-darkBlue' : 'bg-white'} transition-all duration-300 ${isMobileMenuOpen ? 'transform rotate-45 translate-y-2' : ''}`}
+              ></span>
+              <span 
+                className={`w-full h-0.5 ${isScrolled || !isDarkHeaderPage ? 'bg-brand-darkBlue' : 'bg-white'} transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}
+              ></span>
+              <span 
+                className={`w-full h-0.5 ${isScrolled || !isDarkHeaderPage ? 'bg-brand-darkBlue' : 'bg-white'} transition-all duration-300 ${isMobileMenuOpen ? 'transform -rotate-45 -translate-y-2' : ''}`}
+              ></span>
             </div>
           </button>
 
@@ -139,14 +160,23 @@ const Header: React.FC = () => {
           <nav className="hidden lg:flex items-center space-x-6">
             <div className="relative">
               <button
-                className={`flex items-center space-x-1 text-gray-800 hover:text-brand-blue font-medium transition-colors duration-200 ${
-                  activeDropdown === "services" ? "text-brand-blue" : ""
+                className={`flex items-center space-x-1 font-medium transition-colors duration-200 ${
+                  activeDropdown === "services" 
+                    ? "text-brand-blue" 
+                    : isScrolled || !isDarkHeaderPage
+                      ? "text-gray-800 hover:text-brand-blue"
+                      : "text-white hover:text-blue-100"
                 }`}
                 onMouseEnter={() => toggleDropdown("services")}
                 onClick={() => toggleDropdown("services")}
               >
                 <span>Services</span>
-                <ChevronDown size={16} />
+                <ChevronDown 
+                  size={16} 
+                  className={`transition-transform duration-300 ${
+                    activeDropdown === "services" ? "transform rotate-180" : ""
+                  }`}
+                />
               </button>
               <AnimatePresence>
                 {activeDropdown === "services" && (
@@ -161,14 +191,23 @@ const Header: React.FC = () => {
 
             <div className="relative">
               <button
-                className={`flex items-center space-x-1 text-gray-800 hover:text-brand-blue font-medium transition-colors duration-200 ${
-                  activeDropdown === "solutions" ? "text-brand-blue" : ""
+                className={`flex items-center space-x-1 font-medium transition-colors duration-200 ${
+                  activeDropdown === "solutions" 
+                    ? "text-brand-blue" 
+                    : isScrolled || !isDarkHeaderPage
+                      ? "text-gray-800 hover:text-brand-blue"
+                      : "text-white hover:text-blue-100"
                 }`}
                 onMouseEnter={() => toggleDropdown("solutions")}
                 onClick={() => toggleDropdown("solutions")}
               >
                 <span>Solutions</span>
-                <ChevronDown size={16} />
+                <ChevronDown 
+                  size={16}
+                  className={`transition-transform duration-300 ${
+                    activeDropdown === "solutions" ? "transform rotate-180" : ""
+                  }`}
+                />
               </button>
               <AnimatePresence>
                 {activeDropdown === "solutions" && (
@@ -183,7 +222,11 @@ const Header: React.FC = () => {
 
             <Link
               to="/about"
-              className="text-gray-800 hover:text-brand-blue font-medium transition-colors duration-200"
+              className={`font-medium transition-colors duration-200 ${
+                isScrolled || !isDarkHeaderPage
+                  ? "text-gray-800 hover:text-brand-blue"
+                  : "text-white hover:text-blue-100"
+              }`}
               onClick={closeDropdown}
             >
               About Us
@@ -191,14 +234,24 @@ const Header: React.FC = () => {
 
             <Link
               to="/careers"
-              className="text-gray-800 hover:text-brand-blue font-medium transition-colors duration-200"
+              className={`font-medium transition-colors duration-200 ${
+                isScrolled || !isDarkHeaderPage
+                  ? "text-gray-800 hover:text-brand-blue"
+                  : "text-white hover:text-blue-100"
+              }`}
               onClick={closeDropdown}
             >
               Careers
             </Link>
 
             <Link to="/contact">
-              <Button className="bg-brand-blue hover:bg-brand-darkBlue text-white px-5 py-2 rounded-md shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5">
+              <Button 
+                className={`${
+                  isScrolled || !isDarkHeaderPage
+                    ? "bg-brand-blue hover:bg-brand-darkBlue text-white"
+                    : "bg-white text-brand-blue hover:bg-gray-100"
+                } px-5 py-2 rounded-md shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5`}
+              >
                 Contact Us
               </Button>
             </Link>
@@ -213,12 +266,12 @@ const Header: React.FC = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden mt-4"
+              className="lg:hidden mt-4 bg-white rounded-lg shadow-lg"
             >
               <div className="flex flex-col space-y-4 py-4">
                 <div>
                   <button
-                    className="flex justify-between w-full text-left py-2 text-gray-800 font-medium"
+                    className="flex justify-between w-full text-left px-4 py-2 text-gray-800 font-medium"
                     onClick={() => toggleDropdown("services")}
                   >
                     <span>Services</span>
@@ -241,7 +294,7 @@ const Header: React.FC = () => {
                           <Link
                             key={item.title}
                             to={item.href}
-                            className="block py-2 text-gray-600 hover:text-brand-blue"
+                            className="block px-4 py-2 text-gray-600 hover:text-brand-blue"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
                             {item.title}
@@ -249,7 +302,7 @@ const Header: React.FC = () => {
                         ))}
                         <Link
                           to="/services"
-                          className="block py-2 text-brand-blue font-medium"
+                          className="block px-4 py-2 text-brand-blue font-medium"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           → View All Services
@@ -261,7 +314,7 @@ const Header: React.FC = () => {
 
                 <div>
                   <button
-                    className="flex justify-between w-full text-left py-2 text-gray-800 font-medium"
+                    className="flex justify-between w-full text-left px-4 py-2 text-gray-800 font-medium"
                     onClick={() => toggleDropdown("solutions")}
                   >
                     <span>Solutions</span>
@@ -284,7 +337,7 @@ const Header: React.FC = () => {
                           <Link
                             key={item.title}
                             to={item.href}
-                            className="block py-2 text-gray-600 hover:text-brand-blue"
+                            className="block px-4 py-2 text-gray-600 hover:text-brand-blue"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
                             {item.title}
@@ -292,7 +345,7 @@ const Header: React.FC = () => {
                         ))}
                         <Link
                           to="/solutions"
-                          className="block py-2 text-brand-blue font-medium"
+                          className="block px-4 py-2 text-brand-blue font-medium"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           → See All Solutions
@@ -304,7 +357,7 @@ const Header: React.FC = () => {
 
                 <Link
                   to="/about"
-                  className="py-2 text-gray-800 font-medium"
+                  className="px-4 py-2 text-gray-800 font-medium"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   About Us
@@ -312,7 +365,7 @@ const Header: React.FC = () => {
 
                 <Link
                   to="/careers"
-                  className="py-2 text-gray-800 font-medium"
+                  className="px-4 py-2 text-gray-800 font-medium"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Careers
@@ -320,7 +373,7 @@ const Header: React.FC = () => {
 
                 <Link
                   to="/contact"
-                  className="py-2 text-brand-blue font-medium"
+                  className="px-4 py-2 text-brand-blue font-medium"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Contact Us

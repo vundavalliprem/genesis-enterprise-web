@@ -8,6 +8,7 @@ import AboutSection from '@/components/home/AboutSection';
 import ContactCTA from '@/components/home/ContactCTA';
 import TechnologySection from '@/components/home/TechnologySection';
 import CoreValuesSection from '@/components/home/CoreValuesSection';
+import TechnologiesSection from '@/components/home/TechnologiesSection';
 
 const Index: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const Index: React.FC = () => {
         <Hero />
         <CoreValuesSection />
         <ServicesSection />
+        <TechnologiesSection />
         <TechnologySection />
         <AboutSection />
         <ContactCTA />

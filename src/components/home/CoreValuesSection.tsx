@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Target, Users, Award } from 'lucide-react';
+import { Target, Users, Award, Lightbulb, Shield, Zap } from 'lucide-react';
 
 const CoreValuesSection: React.FC = () => {
   const controls = useAnimation();
@@ -33,8 +33,25 @@ const CoreValuesSection: React.FC = () => {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="core-values" className="py-20 md:py-28 bg-gradient-to-br from-white to-blue-50">
       <div className="container mx-auto px-4 md:px-6">
+        <motion.div 
+          className="text-center max-w-3xl mx-auto mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="inline-block py-1 px-3 bg-blue-50 border border-blue-100 text-brand-blue rounded-full text-sm font-medium mb-3">
+            Our Foundation
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-6">
+            Guiding Principles That <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-indigo-600">Define Us</span>
+          </h2>
+          <p className="text-lg text-gray-600">
+            Since our founding in April 2018, we've built our company on strong values that guide our decisions, actions, and relationships with clients and partners.
+          </p>
+        </motion.div>
+      
         <motion.div
           ref={ref}
           variants={containerVariants}
@@ -45,13 +62,12 @@ const CoreValuesSection: React.FC = () => {
           {/* Mission Card */}
           <motion.div 
             variants={itemVariants}
-            className="bg-white rounded-xl p-8 shadow-lg border border-blue-100 hover:shadow-xl transition-shadow duration-300 relative overflow-hidden group"
+            className="bg-white rounded-xl overflow-hidden shadow-xl border border-blue-50 hover:shadow-2xl transition-shadow duration-300 group"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full -mt-16 -mr-16 transition-transform duration-500 group-hover:scale-150"></div>
-            
-            <div className="relative z-10">
-              <div className="w-16 h-16 rounded-full bg-blue-500 flex items-center justify-center mb-6">
-                <Target className="h-8 w-8 text-white" />
+            <div className="h-2 bg-gradient-to-r from-blue-600 to-indigo-600"></div>
+            <div className="p-8">
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-blue-50 to-indigo-50 mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Lightbulb className="h-7 w-7 text-brand-blue" />
               </div>
               
               <h3 className="text-2xl font-heading font-bold text-gray-900 mb-4">Our Mission</h3>
@@ -61,9 +77,12 @@ const CoreValuesSection: React.FC = () => {
               </p>
               
               <div className="pt-4 border-t border-gray-100">
-                <p className="text-gray-700 font-medium italic">
-                  "We're committed to transforming businesses through technology excellence and exceptional service."
-                </p>
+                <div className="flex items-center space-x-3">
+                  <Zap className="h-5 w-5 text-brand-blue" />
+                  <p className="text-gray-700 font-medium">
+                    Driving digital transformation through excellence and innovation
+                  </p>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -71,13 +90,12 @@ const CoreValuesSection: React.FC = () => {
           {/* Vision Card */}
           <motion.div 
             variants={itemVariants}
-            className="bg-white rounded-xl p-8 shadow-lg border border-blue-100 hover:shadow-xl transition-shadow duration-300 relative overflow-hidden group"
+            className="bg-white rounded-xl overflow-hidden shadow-xl border border-blue-50 hover:shadow-2xl transition-shadow duration-300 group"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full -mt-16 -mr-16 transition-transform duration-500 group-hover:scale-150"></div>
-            
-            <div className="relative z-10">
-              <div className="w-16 h-16 rounded-full bg-indigo-500 flex items-center justify-center mb-6">
-                <Users className="h-8 w-8 text-white" />
+            <div className="h-2 bg-gradient-to-r from-indigo-600 to-purple-600"></div>
+            <div className="p-8">
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-50 to-purple-50 mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Target className="h-7 w-7 text-indigo-600" />
               </div>
               
               <h3 className="text-2xl font-heading font-bold text-gray-900 mb-4">Our Vision</h3>
@@ -87,9 +105,12 @@ const CoreValuesSection: React.FC = () => {
               </p>
               
               <div className="pt-4 border-t border-gray-100">
-                <p className="text-gray-700 font-medium italic">
-                  "We envision a world where technology seamlessly enhances business value and human experiences."
-                </p>
+                <div className="flex items-center space-x-3">
+                  <Shield className="h-5 w-5 text-indigo-600" />
+                  <p className="text-gray-700 font-medium">
+                    Building a future where technology enhances business value and human experiences
+                  </p>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -97,29 +118,34 @@ const CoreValuesSection: React.FC = () => {
           {/* Values Card */}
           <motion.div 
             variants={itemVariants}
-            className="bg-white rounded-xl p-8 shadow-lg border border-blue-100 hover:shadow-xl transition-shadow duration-300 relative overflow-hidden group"
+            className="bg-white rounded-xl overflow-hidden shadow-xl border border-blue-50 hover:shadow-2xl transition-shadow duration-300 group"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full -mt-16 -mr-16 transition-transform duration-500 group-hover:scale-150"></div>
-            
-            <div className="relative z-10">
-              <div className="w-16 h-16 rounded-full bg-brand-blue flex items-center justify-center mb-6">
-                <Award className="h-8 w-8 text-white" />
+            <div className="h-2 bg-gradient-to-r from-purple-600 to-blue-600"></div>
+            <div className="p-8">
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-purple-50 to-blue-50 mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Award className="h-7 w-7 text-purple-600" />
               </div>
               
               <h3 className="text-2xl font-heading font-bold text-gray-900 mb-4">Our Values</h3>
               
-              <ul className="space-y-3 text-gray-600 mb-6">
+              <ul className="space-y-4 text-gray-600 mb-6">
                 <li className="flex items-start">
-                  <span className="text-brand-blue font-bold mr-2">→</span>
-                  <span><strong>Excellence</strong>: Consistently delivering high-quality solutions</span>
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-0.5">
+                    <span className="text-brand-blue font-bold text-sm">1</span>
+                  </div>
+                  <span><strong className="text-gray-800">Excellence</strong>: Delivering high-quality solutions that exceed expectations</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-brand-blue font-bold mr-2">→</span>
-                  <span><strong>Innovation</strong>: Embracing new technologies and approaches</span>
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-indigo-100 flex items-center justify-center mr-3 mt-0.5">
+                    <span className="text-indigo-600 font-bold text-sm">2</span>
+                  </div>
+                  <span><strong className="text-gray-800">Innovation</strong>: Embracing emerging technologies to solve complex problems</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-brand-blue font-bold mr-2">→</span>
-                  <span><strong>Integrity</strong>: Operating with honesty and transparency</span>
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-purple-100 flex items-center justify-center mr-3 mt-0.5">
+                    <span className="text-purple-600 font-bold text-sm">3</span>
+                  </div>
+                  <span><strong className="text-gray-800">Integrity</strong>: Operating with transparency and building lasting trust</span>
                 </li>
               </ul>
             </div>
