@@ -6,12 +6,12 @@ import Footer from '@/components/layout/Footer';
 import { Users, Target, Award, Globe } from 'lucide-react';
 
 const About: React.FC = () => {
-  // Example company stats
+  // Updated company stats
   const stats = [
-    { label: "Years in business", value: "15+" },
-    { label: "Global clients", value: "200+" },
-    { label: "Team members", value: "500+" },
-    { label: "Projects delivered", value: "1000+" }
+    { label: "Years in business", value: "7+" },
+    { label: "Global clients", value: "12+" },
+    { label: "Team members", value: "45+" },
+    { label: "Projects delivered", value: "23+" }
   ];
 
   // Example team members
@@ -79,7 +79,7 @@ const About: React.FC = () => {
                 About Gorantla Infotech
               </h1>
               <p className="text-lg text-blue-100">
-                Empowering enterprises with innovative technology solutions since 2008
+                Empowering enterprises with innovative technology solutions since April 2018
               </p>
             </motion.div>
           </div>
@@ -98,10 +98,10 @@ const About: React.FC = () => {
                   Our Story
                 </h2>
                 <p className="text-lg text-gray-700 mb-4">
-                  Founded in 2008, Gorantla Infotech Solutions has grown from a small team of passionate technologists to a global enterprise solution provider serving clients across industries.
+                  Founded on April 9, 2018, Gorantla Infotech Solutions has grown from a small team of passionate technologists to an enterprise solution provider serving clients across industries.
                 </p>
                 <p className="text-lg text-gray-700 mb-4">
-                  With our headquarters in Hyderabad and offices across North America, Europe, and Asia, we bring together diverse perspectives and technical expertise to solve complex business challenges.
+                  With our headquarters in Hyderabad, we bring together diverse perspectives and technical expertise to solve complex business challenges.
                 </p>
                 <p className="text-lg text-gray-700 mb-6">
                   Our mission is to empower enterprises by delivering innovative technology solutions that drive growth, efficiency, and competitive advantage in an increasingly digital world.
@@ -173,8 +173,70 @@ const About: React.FC = () => {
           </div>
         </section>
 
-        {/* Leadership Team */}
+        {/* Contact Information */}
         <section className="py-16 md:py-24 bg-white">
+          <div className="container mx-auto px-4 md:px-6">
+            <motion.div 
+              className="text-center max-w-3xl mx-auto mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
+                Contact Us
+              </h2>
+              <p className="text-lg text-gray-700">
+                Get in touch with our team to discuss your technology needs
+              </p>
+            </motion.div>
+
+            <div className="max-w-4xl mx-auto bg-blue-50 rounded-xl overflow-hidden shadow-lg">
+              <div className="grid grid-cols-1 lg:grid-cols-2">
+                <div className="p-8 md:p-12">
+                  <h3 className="text-2xl font-heading font-bold text-gray-900 mb-6">Our Office</h3>
+                  
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Hyderabad Office</h4>
+                      <p className="text-gray-600">
+                        3rd Floor Sri Durga Sai Hub, 301, 13th phase rd,<br/>
+                        opposite prajay megapolis, kukatpally housing board colony<br/>
+                        Hyderabad, Telangana 500072<br/>
+                        India
+                      </p>
+                    </div>
+                    
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Contact Information</h4>
+                      <p className="text-gray-600 mb-1">
+                        <strong>Email:</strong> info@gorantlainfotech.com
+                      </p>
+                      <p className="text-gray-600">
+                        <strong>Phone:</strong> +91 89394 44844 (India)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="h-64 lg:h-auto">
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.3392368751676!2d78.3985!3d17.4850!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDI5JzA2LjAiTiA3OMKwMjMnNTQuNiJF!5e0!3m2!1sen!2sin!4v1620120000000!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0 }} 
+                    allowFullScreen 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Gorantla Infotech Location"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Leadership Team */}
+        <section className="py-16 md:py-24 bg-gray-50">
           <div className="container mx-auto px-4 md:px-6">
             <motion.div 
               className="text-center max-w-3xl mx-auto mb-16"

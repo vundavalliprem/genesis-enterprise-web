@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ArrowRight, ChevronDown, Star, Shield, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
@@ -55,37 +55,38 @@ const Hero: React.FC = () => {
 
       {/* Content container */}
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left column - Text content */}
           <motion.div
             ref={ref}
-            className="flex flex-col"
+            className="lg:col-span-6 flex flex-col"
             variants={containerVariants}
             initial="hidden"
             animate={controls}
           >
-            <motion.div variants={itemVariants}>
-              <span className="inline-block py-1.5 px-4 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 text-brand-blue rounded-full text-sm font-medium mb-6">
-                Enterprise Technology Solutions
+            <motion.div variants={itemVariants} className="mb-6">
+              <span className="inline-flex items-center py-1.5 px-4 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 text-brand-blue rounded-full text-sm font-medium">
+                <Star className="w-4 h-4 mr-2 text-brand-blue" />
+                <span>Enterprise Technology Solutions</span>
               </span>
             </motion.div>
             
             <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-gray-900 leading-tight mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6"
               variants={itemVariants}
             >
-              Powering <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-darkBlue">Digital Innovation</span> For Enterprise Success
+              Empowering Businesses Through <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-darkBlue">Digital Excellence</span>
             </motion.h1>
 
             <motion.p 
-              className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl"
+              className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl"
               variants={itemVariants}
             >
-              Strategic technology services and solutions that transform enterprises, streamline operations, and accelerate growth in the digital era.
+              We craft innovative technology solutions that transform enterprises, streamline operations, and drive sustainable growth in today's digital landscape.
             </motion.p>
 
             <motion.div 
-              className="flex flex-col sm:flex-row items-center gap-4"
+              className="flex flex-col sm:flex-row items-center gap-4 mb-10"
               variants={itemVariants}
             >
               <Link to="/services">
@@ -100,44 +101,104 @@ const Hero: React.FC = () => {
                 </Button>
               </Link>
             </motion.div>
+
+            {/* Stats */}
+            <motion.div 
+              className="grid grid-cols-3 gap-4 md:gap-8"
+              variants={itemVariants}
+            >
+              <div className="bg-white bg-opacity-70 backdrop-filter backdrop-blur-sm p-3 md:p-4 rounded-lg text-center">
+                <div className="text-2xl md:text-3xl font-bold text-brand-darkBlue">7+</div>
+                <div className="text-xs md:text-sm text-gray-500">Years of Experience</div>
+              </div>
+              <div className="bg-white bg-opacity-70 backdrop-filter backdrop-blur-sm p-3 md:p-4 rounded-lg text-center">
+                <div className="text-2xl md:text-3xl font-bold text-brand-darkBlue">23+</div>
+                <div className="text-xs md:text-sm text-gray-500">Projects Delivered</div>
+              </div>
+              <div className="bg-white bg-opacity-70 backdrop-filter backdrop-blur-sm p-3 md:p-4 rounded-lg text-center">
+                <div className="text-2xl md:text-3xl font-bold text-brand-darkBlue">12+</div>
+                <div className="text-xs md:text-sm text-gray-500">Happy Clients</div>
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Right column - Image and floating elements */}
           <motion.div
-            className="relative h-full min-h-[400px] lg:min-h-[500px] hidden lg:block"
+            className="lg:col-span-6 relative h-full min-h-[400px] lg:min-h-[550px]"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
           >
-            {/* Main image */}
-            <motion.div
-              className="absolute inset-0 z-10 rounded-lg overflow-hidden shadow-2xl"
-              initial={{ y: 20 }}
-              animate={{ y: 0 }}
-              transition={{ 
-                duration: 1,
-                ease: "easeOut"
-              }}
-            >
-              <img 
-                src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" 
-                alt="Enterprise Technology Solutions" 
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
+            {/* 3D-like stacked images */}
+            <div className="relative h-full flex items-center justify-center">
+              {/* Background image */}
+              <motion.div 
+                className="absolute z-10 w-5/6 h-auto rounded-xl overflow-hidden shadow-xl border border-gray-200"
+                initial={{ y: 40, x: -20, rotate: -6 }}
+                animate={{ y: 30, x: -20, rotate: -6 }}
+                transition={{ 
+                  duration: 2,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatType: "reverse"
+                }}
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1581092921461-eab10380ed88?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  alt="Digital technology visualization"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+
+              {/* Middle image */}
+              <motion.div 
+                className="absolute z-20 w-5/6 h-auto rounded-xl overflow-hidden shadow-2xl border border-gray-100"
+                initial={{ y: 10, rotate: 2 }}
+                animate={{ y: -5, rotate: 2 }}
+                transition={{ 
+                  duration: 3,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatType: "reverse"
+                }}
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  alt="Advanced data analytics"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+
+              {/* Front image */}
+              <motion.div 
+                className="relative z-30 w-5/6 h-auto rounded-xl overflow-hidden shadow-2xl border border-gray-100"
+                initial={{ y: -30, x: 20, rotate: -2 }}
+                animate={{ y: -20, x: 20, rotate: -2 }}
+                transition={{ 
+                  duration: 2.5,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatType: "reverse"
+                }}
+              >
+                <img 
+                  src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" 
+                  alt="Enterprise Technology Solutions" 
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+            </div>
 
             {/* Floating elements */}
             <motion.div
-              className="absolute -top-8 -right-8 bg-white rounded-lg p-4 shadow-lg z-20 border border-gray-100"
+              className="absolute top-5 right-0 bg-white rounded-lg p-4 shadow-lg z-40 border border-gray-100"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
               <div className="flex items-center space-x-3">
                 <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                  <Shield className="h-5 w-5 text-brand-blue" />
                 </div>
                 <div>
                   <div className="font-medium text-gray-900">Enterprise-grade</div>
@@ -147,20 +208,18 @@ const Hero: React.FC = () => {
             </motion.div>
 
             <motion.div
-              className="absolute -bottom-8 -left-8 bg-white rounded-lg p-4 shadow-lg z-20 border border-gray-100"
+              className="absolute -bottom-4 left-0 bg-white rounded-lg p-4 shadow-lg z-40 border border-gray-100"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 1 }}
             >
               <div className="flex items-center space-x-3">
                 <div className="h-10 w-10 rounded-full bg-green-100 flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
+                  <ArrowUpRight className="h-5 w-5 text-green-600" />
                 </div>
                 <div>
                   <div className="font-medium text-gray-900">Proven Results</div>
-                  <div className="text-sm text-gray-500">Trusted by Global Brands</div>
+                  <div className="text-sm text-gray-500">Trusted by Businesses</div>
                 </div>
               </div>
             </motion.div>

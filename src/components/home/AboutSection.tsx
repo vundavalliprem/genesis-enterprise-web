@@ -71,7 +71,7 @@ const AboutSection: React.FC = () => {
               variants={itemVariants}
               className="text-lg text-gray-600 mb-6"
             >
-              Gorantla Infotech Solutions is a future-ready technology company specializing in enterprise-grade IT solutions. With a focus on innovation and excellence, we help businesses navigate their digital transformation journeys.
+              Gorantla Infotech Solutions is a future-ready technology company specializing in enterprise-grade IT solutions. Founded in April 2018, we help businesses navigate their digital transformation journeys with a focus on innovation and excellence.
             </motion.p>
             
             <motion.div variants={itemVariants} className="mb-8">
