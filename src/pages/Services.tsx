@@ -48,7 +48,7 @@ const Services: React.FC = () => {
         {/* Services List Section */}
         <section className="py-16 md:py-24">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="grid grid-cols-1 gap-12 md:gap-16">
+            <div className="grid grid-cols-1 gap-16 md:gap-24">
               {servicesData.map((service, index) => (
                 <motion.div
                   key={service.id}
@@ -58,7 +58,7 @@ const Services: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <div className="w-20 h-20 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0 md:mt-2">
+                  <div className="w-24 h-24 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0 md:mt-2">
                     {getIconByName(service.iconName)}
                   </div>
                   
@@ -66,27 +66,45 @@ const Services: React.FC = () => {
                     <h2 className="text-2xl md:text-3xl font-heading font-bold text-gray-900 mb-4">
                       {service.title}
                     </h2>
-                    <p className="text-lg text-gray-600 mb-6">
+                    <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                       {service.details}
                     </p>
                     
-                    <div className="bg-gray-50 p-6 rounded-lg mb-6">
-                      <h3 className="font-heading font-semibold text-lg mb-4">Key Features</h3>
-                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-8 rounded-lg shadow-sm border border-gray-100 mb-8">
+                      <h3 className="font-heading font-semibold text-xl mb-6 text-gray-900">Enterprise-Grade Features</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {service.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start">
-                            <span className="mr-2 text-brand-blue">✓</span>
-                            <span>{feature}</span>
-                          </li>
+                          <div key={idx} className="flex items-start bg-white p-4 rounded-lg shadow-sm">
+                            <div className="w-8 h-8 bg-brand-blue/10 rounded-full flex items-center justify-center mr-4 mt-0.5">
+                              <span className="text-brand-blue">✓</span>
+                            </div>
+                            <div>
+                              <span className="font-medium text-gray-900">{feature}</span>
+                            </div>
+                          </div>
                         ))}
-                      </ul>
+                      </div>
+                    </div>
+                    
+                    <div className="flex flex-col sm:flex-row gap-6 mb-8">
+                      <div className="flex-1 bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                        <h4 className="font-heading font-semibold text-lg mb-3 text-gray-900">Client Success Stories</h4>
+                        <p className="text-gray-600">Our {service.title.toLowerCase()} services have helped numerous enterprises achieve operational excellence and strategic growth. Discover how we can transform your business too.</p>
+                      </div>
+                      <div className="flex-1 bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                        <h4 className="font-heading font-semibold text-lg mb-3 text-gray-900">Technology Stack</h4>
+                        <p className="text-gray-600">We leverage industry-leading technologies and frameworks to ensure robust, secure, and scalable solutions tailored to your business needs.</p>
+                      </div>
                     </div>
                     
                     <Link 
                       to={`/services/${service.id}`}
-                      className="inline-flex items-center px-5 py-2 bg-brand-blue text-white rounded hover:bg-brand-darkBlue transition-colors duration-200"
+                      className="inline-flex items-center px-6 py-3 bg-brand-blue text-white rounded-lg hover:bg-brand-darkBlue transition-colors duration-200"
                     >
-                      Learn More
+                      Learn More About {service.title}
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
                     </Link>
                   </div>
                 </motion.div>

@@ -41,34 +41,21 @@ const Hero: React.FC = () => {
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
-                onClick={() => navigate('/contact')}
-                size="lg" 
-                className="bg-brand-blue hover:bg-brand-darkBlue text-white px-8 font-medium"
-              >
-                Get Started
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button 
                 onClick={() => navigate('/services')}
                 size="lg" 
-                variant="outline"
-                className="border-gray-400 text-white hover:bg-white/10 hover:text-white"
+                className="bg-white hover:bg-gray-100 text-brand-blue font-medium px-8"
               >
                 Explore Our Services
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
             
             <div className="mt-12">
-              <p className="text-gray-400 mb-3">Trusted by industry leaders</p>
-              <div className="flex flex-wrap gap-8">
-                <div className="bg-white/10 h-12 w-24 rounded-md flex items-center justify-center">
-                  <div className="text-white text-sm font-semibold">Client 1</div>
-                </div>
-                <div className="bg-white/10 h-12 w-24 rounded-md flex items-center justify-center">
-                  <div className="text-white text-sm font-semibold">Client 2</div>
-                </div>
-                <div className="bg-white/10 h-12 w-24 rounded-md flex items-center justify-center">
-                  <div className="text-white text-sm font-semibold">Client 3</div>
+              <p className="text-gray-400 mb-3">Trusted by organizations worldwide</p>
+              <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
+                <div className="text-white text-sm">
+                  <span className="font-semibold block mb-1">Enterprise-Grade Solutions</span>
+                  <p>Powering mission-critical operations for businesses across industries with 99.9% uptime guarantee</p>
                 </div>
               </div>
             </div>
@@ -81,23 +68,31 @@ const Hero: React.FC = () => {
             className="hidden lg:flex justify-end"
           >
             <div className="relative">
-              {/* Main visual element */}
-              <div className="relative z-10 bg-gradient-to-br from-blue-600 to-indigo-800 p-1 rounded-lg shadow-2xl">
-                <div className="bg-gray-900 rounded-lg overflow-hidden p-6">
-                  <div className="flex space-x-2 mb-4">
-                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  </div>
-                  <div className="space-y-3">
-                    <div className="h-4 w-full bg-gray-800 rounded"></div>
-                    <div className="h-4 w-5/6 bg-brand-blue/30 rounded"></div>
-                    <div className="h-4 w-4/6 bg-gray-800 rounded"></div>
-                    <div className="h-4 w-full bg-gray-800 rounded"></div>
-                    <div className="h-20 w-full bg-gradient-to-r from-brand-blue/20 to-purple-500/20 rounded"></div>
-                    <div className="flex space-x-2">
-                      <div className="h-8 w-24 bg-brand-blue rounded"></div>
-                      <div className="h-8 w-16 bg-gray-800 rounded"></div>
+              {/* Modern professional visualization */}
+              <div className="relative z-10 bg-gradient-to-br from-blue-500 to-indigo-700 p-1 rounded-lg shadow-2xl overflow-hidden">
+                <div className="bg-gray-900 rounded-lg overflow-hidden">
+                  <div className="aspect-w-16 aspect-h-9 w-full">
+                    <img 
+                      src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                      alt="Enterprise technology dashboard" 
+                      className="object-cover w-full h-full"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60"></div>
+                    <div className="absolute inset-0 flex flex-col justify-end p-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex space-x-1">
+                          {[1, 2, 3, 4].map((i) => (
+                            <div key={i} className="w-2 h-2 rounded-full bg-blue-500"></div>
+                          ))}
+                        </div>
+                        <div className="bg-blue-500/20 backdrop-blur-sm px-3 py-1 rounded-full">
+                          <span className="text-xs font-medium text-white">Enterprise Analytics</span>
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <div className="h-2 w-3/4 bg-white/20 rounded"></div>
+                        <div className="h-2 w-1/2 bg-white/20 rounded"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -105,9 +100,27 @@ const Hero: React.FC = () => {
               
               {/* Decorative elements */}
               <div className="absolute w-full h-full -bottom-4 -right-4 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg opacity-50 blur-lg"></div>
-              <div className="absolute w-24 h-24 top-1/2 -left-12 bg-white/5 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg"></div>
-              <div className="absolute w-16 h-16 bottom-12 -right-8 bg-white/5 backdrop-blur-lg rounded-lg border border-white/10 shadow-lg"></div>
-              <div className="absolute w-8 h-20 top-8 -right-4 bg-gradient-to-b from-cyan-400 to-blue-600 rounded-md opacity-60 blur-sm"></div>
+              
+              {/* Floating UI elements */}
+              <div className="absolute w-32 h-32 top-10 -right-10 bg-white/10 backdrop-blur-md rounded-lg border border-white/20 shadow-xl flex flex-col justify-center items-center p-4 rotate-6">
+                <div className="w-10 h-10 bg-blue-500 rounded-full mb-2 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+                <div className="h-2 w-full bg-white/30 rounded mb-1"></div>
+                <div className="h-2 w-2/3 bg-white/30 rounded"></div>
+              </div>
+              
+              <div className="absolute w-24 h-24 -bottom-6 -left-6 bg-white/10 backdrop-blur-md rounded-lg border border-white/20 shadow-xl flex flex-col justify-center items-center p-3 -rotate-12">
+                <div className="w-8 h-8 bg-green-500 rounded-full mb-2 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div className="h-1.5 w-full bg-white/30 rounded mb-1"></div>
+                <div className="h-1.5 w-4/5 bg-white/30 rounded"></div>
+              </div>
             </div>
           </motion.div>
         </div>

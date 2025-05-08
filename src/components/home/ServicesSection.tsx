@@ -59,7 +59,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, iconName,
       animate={controls}
       className="bg-white rounded-xl shadow-sm hover:shadow-md border border-gray-100 p-6 transition-all duration-300 hover:translate-y-[-5px] group"
     >
-      <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
+      <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-5">
         {getIconByName(iconName)}
       </div>
       <h3 className="text-xl font-heading font-semibold text-gray-900 mb-3">{title}</h3>

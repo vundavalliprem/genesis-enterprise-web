@@ -5,8 +5,6 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, ArrowRight, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
-  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -120,12 +118,6 @@ const Footer: React.FC = () => {
                   <span>Contact Us</span>
                 </Link>
               </li>
-              <li>
-                <Link to="/privacy-policy" className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center">
-                  <ArrowRight size={14} className="mr-2" />
-                  <span>Privacy Policy</span>
-                </Link>
-              </li>
             </ul>
           </motion.div>
 
@@ -151,13 +143,8 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 text-sm mb-4 md:mb-0">
-              © {currentYear} Gorantla Infotech Solutions Pvt Ltd. All rights reserved.
+              © 2018 Gorantla Infotech Solutions Pvt Ltd. All rights reserved.
             </p>
-            <div className="flex space-x-6">
-              <Link to="/terms" className="text-gray-500 hover:text-white text-sm transition-colors duration-300">Terms of Service</Link>
-              <Link to="/privacy-policy" className="text-gray-500 hover:text-white text-sm transition-colors duration-300">Privacy Policy</Link>
-              <Link to="/cookies" className="text-gray-500 hover:text-white text-sm transition-colors duration-300">Cookies</Link>
-            </div>
           </div>
         </div>
       </div>
