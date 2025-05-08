@@ -123,10 +123,7 @@ const Contact: React.FC = () => {
               <div className="lg:col-span-3">
                 <div className="grid grid-cols-1 gap-8">
                   {/* Form */}
-                  <div className="bg-white p-6 rounded-xl shadow-md">
-                    <h2 className="text-2xl font-heading font-bold text-gray-900 mb-6">Send Us a Message</h2>
-                    <ContactForm />
-                  </div>
+                  <ContactForm />
                   
                   {/* Map */}
                   <div className="h-80 rounded-xl overflow-hidden shadow-md">
