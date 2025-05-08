@@ -6,7 +6,6 @@ import Hero from '@/components/home/Hero';
 import ServicesSection from '@/components/home/ServicesSection';
 import AboutSection from '@/components/home/AboutSection';
 import ContactCTA from '@/components/home/ContactCTA';
-import TechnologySection from '@/components/home/TechnologySection';
 import CoreValuesSection from '@/components/home/CoreValuesSection';
 import TechnologiesSection from '@/components/home/TechnologiesSection';
 
@@ -19,7 +18,6 @@ const Index: React.FC = () => {
         <CoreValuesSection />
         <ServicesSection />
         <TechnologiesSection />
-        <TechnologySection />
         <AboutSection />
         <ContactCTA />
       </main>

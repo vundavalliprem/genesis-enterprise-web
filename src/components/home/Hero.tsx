@@ -128,46 +128,90 @@ const Hero: React.FC = () => {
                 <div className="text-xs md:text-sm text-blue-200">Projects Delivered</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm border border-white/20 p-3 md:p-4 rounded-lg text-center">
-                <div className="text-2xl md:text-3xl font-bold text-white">12+</div>
-                <div className="text-xs md:text-sm text-blue-200">Happy Clients</div>
+                <div className="text-2xl md:text-3xl font-bold text-white">45+</div>
+                <div className="text-xs md:text-sm text-blue-200">Team Members</div>
               </div>
             </motion.div>
           </motion.div>
 
-          {/* Right column - Professional imagery */}
+          {/* Right column - Digital Transformation Visualization */}
           <motion.div
             className="lg:col-span-6 relative h-full"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            {/* Modern technology dashboard representation */}
+            {/* 3D isometric representation of digital transformation */}
             <div className="relative z-10 bg-gradient-to-br from-white/10 to-transparent backdrop-blur-md p-4 md:p-6 rounded-2xl border border-white/20 shadow-2xl">
+              {/* Main visualization image */}
               <img
-                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80"
-                alt="Enterprise Technology Dashboard"
+                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80"
+                alt="Digital Transformation Ecosystem"
                 className="w-full h-full object-cover rounded-lg shadow-inner"
               />
               
-              {/* Overlay UI elements for tech feel */}
-              <div className="absolute inset-0 p-4 md:p-6">
-                <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-md py-1 px-3 rounded-full text-xs text-white border border-white/30">
-                  Enterprise Analytics Platform
-                </div>
-                
-                <div className="absolute bottom-6 left-6 right-6 bg-white/10 backdrop-blur-md p-4 rounded-lg border border-white/30">
-                  <div className="flex justify-between items-center mb-2">
-                    <div className="text-white font-medium">System Performance</div>
-                    <div className="text-green-400 text-sm">98.7% Uptime</div>
+              {/* Interactive overlay elements */}
+              <div className="absolute inset-0">
+                {/* Floating tech nodes */}
+                <div className="absolute top-5 left-[40%] flex flex-col items-center">
+                  <div className="w-12 h-12 bg-blue-600/90 backdrop-blur rounded-full flex items-center justify-center shadow-lg">
+                    <svg className="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
                   </div>
-                  <div className="w-full bg-white/20 rounded-full h-1.5">
-                    <div className="bg-gradient-to-r from-blue-400 to-cyan-300 h-1.5 rounded-full" style={{ width: '92%' }}></div>
+                  <div className="mt-2 bg-white/90 backdrop-blur px-2 py-1 rounded text-xs font-medium text-gray-800 shadow-lg">
+                    Analytics
                   </div>
                 </div>
                 
-                <div className="absolute top-1/3 left-10 bg-white/10 backdrop-blur-md p-2 rounded-lg border border-white/30 hidden md:block">
-                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-white" />
+                <div className="absolute bottom-10 right-10 flex flex-col items-center">
+                  <div className="w-12 h-12 bg-cyan-500/90 backdrop-blur rounded-full flex items-center justify-center shadow-lg">
+                    <svg className="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+                    </svg>
+                  </div>
+                  <div className="mt-2 bg-white/90 backdrop-blur px-2 py-1 rounded text-xs font-medium text-gray-800 shadow-lg">
+                    Connectivity
+                  </div>
+                </div>
+                
+                <div className="absolute top-1/3 left-10 flex flex-col items-center">
+                  <div className="w-12 h-12 bg-indigo-600/90 backdrop-blur rounded-full flex items-center justify-center shadow-lg">
+                    <svg className="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                    </svg>
+                  </div>
+                  <div className="mt-2 bg-white/90 backdrop-blur px-2 py-1 rounded text-xs font-medium text-gray-800 shadow-lg">
+                    Processing
+                  </div>
+                </div>
+                
+                {/* Connection lines (SVG) */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="45%" y1="10%" x2="18%" y2="33%" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeDasharray="5,5" />
+                  <line x1="18%" y1="33%" x2="80%" y2="80%" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeDasharray="5,5" />
+                  <line x1="45%" y1="10%" x2="80%" y2="80%" stroke="rgba(255,255,255,0.7)" strokeWidth="1" strokeDasharray="5,5" />
+                </svg>
+              </div>
+              
+              {/* Information panel */}
+              <div className="absolute bottom-4 left-4 right-4 bg-white/10 backdrop-blur-lg p-4 rounded-lg border border-white/30">
+                <div className="flex justify-between items-center mb-2">
+                  <div className="text-white font-medium">Digital Transformation Hub</div>
+                  <div className="text-green-400 text-sm">Active Projects: 7</div>
+                </div>
+                <div className="flex gap-2">
+                  <div className="flex-1 bg-white/20 rounded-md px-2 py-1">
+                    <div className="text-xs text-blue-100">Cloud Migration</div>
+                    <div className="w-full bg-white/30 h-1.5 mt-1 rounded-full">
+                      <div className="bg-gradient-to-r from-blue-400 to-cyan-300 h-1.5 rounded-full" style={{width: '65%'}}></div>
+                    </div>
+                  </div>
+                  <div className="flex-1 bg-white/20 rounded-md px-2 py-1">
+                    <div className="text-xs text-blue-100">DevOps Pipeline</div>
+                    <div className="w-full bg-white/30 h-1.5 mt-1 rounded-full">
+                      <div className="bg-gradient-to-r from-blue-400 to-cyan-300 h-1.5 rounded-full" style={{width: '82%'}}></div>
+                    </div>
                   </div>
                 </div>
               </div>
