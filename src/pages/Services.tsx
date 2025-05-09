@@ -106,7 +106,12 @@ const Services: React.FC = () => {
                       <div className="w-full md:w-3/5">
                         <div className="mb-4">
                           <span className="inline-block px-3 py-1 bg-blue-100 text-brand-blue rounded-full text-sm font-medium mb-2">
-                            {service.tag || "Enterprise Solution"}
+                            {service.title.includes("Cloud") ? "Cloud Solutions" : 
+                             service.title.includes("QA") ? "Quality Assurance" :
+                             service.title.includes("Application") ? "Enterprise Applications" :
+                             service.title.includes("Consulting") ? "Strategic Consulting" :
+                             service.title.includes("Project") ? "Project Excellence" :
+                             service.title.includes("Offshore") ? "Global Talent" : "Enterprise Solution"}
                           </span>
                           <h2 className="text-2xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
                             {service.title}
