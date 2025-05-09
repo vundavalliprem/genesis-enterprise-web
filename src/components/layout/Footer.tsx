@@ -126,15 +126,18 @@ const Footer: React.FC = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <MapPin size={18} className="mr-3 mt-1 text-brand-blue" />
-                <span className="text-gray-400">123 Tech Park, Silicon Valley, CA 94043, USA</span>
+                <span className="text-gray-400">3rd Floor Sri Durga Sai Hub, 301, 13th phase rd,<br />
+                opposite prajay megapolis, kukatpally housing board colony<br />
+                Hyderabad, Telangana 500072<br />
+                India</span>
               </li>
               <li className="flex items-center">
                 <Phone size={18} className="mr-3 text-brand-blue" />
-                <a href="tel:+14155551234" className="text-gray-400 hover:text-white transition-colors duration-300">+1 (415) 555-1234</a>
+                <a href="tel:+918939444844" className="text-gray-400 hover:text-white transition-colors duration-300">+91 89394 44844 (India)</a>
               </li>
               <li className="flex items-center">
                 <Mail size={18} className="mr-3 text-brand-blue" />
-                <a href="mailto:info@gorantla-infotech.com" className="text-gray-400 hover:text-white transition-colors duration-300">info@gorantla-infotech.com</a>
+                <a href="mailto:info@gorantlainfotech.com" className="text-gray-400 hover:text-white transition-colors duration-300">info@gorantlainfotech.com</a>
               </li>
             </ul>
           </motion.div>

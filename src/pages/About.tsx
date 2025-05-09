@@ -16,30 +16,6 @@ const About: React.FC = () => {
     { label: "Projects delivered", value: "23+" }
   ];
 
-  // Example team members
-  const teamMembers = [
-    { 
-      name: "Aditya Gorantla", 
-      title: "Chief Executive Officer",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80"
-    },
-    { 
-      name: "Priya Sharma", 
-      title: "Chief Technology Officer",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2576&q=80"
-    },
-    { 
-      name: "Rajesh Kumar", 
-      title: "VP of Operations",
-      image: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80"
-    },
-    { 
-      name: "Sarah Johnson", 
-      title: "Director of Strategy",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2022&q=80"
-    }
-  ];
-
   // Example values
   const values = [
     { 
@@ -340,62 +316,6 @@ const About: React.FC = () => {
                       {item.year}
                     </div>
                   </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Leadership Team */}
-        <section className="py-16 md:py-24 bg-white">
-          <div className="container mx-auto px-4 md:px-6">
-            <motion.div 
-              className="text-center max-w-3xl mx-auto mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-                Leadership Team
-              </h2>
-              <p className="text-lg text-gray-700">
-                Meet the experts guiding our vision and strategy
-              </p>
-            </motion.div>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {teamMembers.map((member, index) => (
-                <motion.div 
-                  key={index}
-                  className="group"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                >
-                  <div className="relative overflow-hidden rounded-xl mb-4 shadow-md group-hover:shadow-xl transition-shadow duration-300">
-                    <img 
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
-                    <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                      <div className="flex space-x-3">
-                        <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0zM7.27 20.1H3.65V9.24h3.62V20.1zM5.47 7.76h-.03c-1.22 0-2-.83-2-1.87 0-1.06.8-1.87 2.05-1.87 1.24 0 2 .8 2.02 1.87 0 1.04-.78 1.87-2.05 1.87zM20.34 20.1h-3.63v-5.8c0-1.45-.52-2.45-1.83-2.45-1 0-1.6.67-1.87 1.32-.1.23-.11.55-.11.88v6.05H9.28s.05-9.82 0-10.84h3.63v1.54a3.6 3.6 0 0 1 3.26-1.8c2.39 0 4.18 1.56 4.18 4.89v6.21z"/>
-                          </svg>
-                        </div>
-                        <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M24 4.37a9.6 9.6 0 0 1-2.83.8 5.04 5.04 0 0 0 2.17-2.8c-.95.58-2 1-3.13 1.22A4.86 4.86 0 0 0 16.61 2a4.99 4.99 0 0 0-4.79 6.2A13.87 13.87 0 0 1 1.67 2.92 5.12 5.12 0 0 0 3.2 9.67a4.82 4.82 0 0 1-2.23-.64v.07c0 2.44 1.7 4.48 3.95 4.95a4.84 4.84 0 0 1-2.22.08c.63 2.01 2.45 3.47 4.6 3.51A9.72 9.72 0 0 1 0 19.74 13.68 13.68 0 0 0 7.55 22c9.06 0 14-7.68 14-14.36 0-.22 0-.43-.02-.65A10 10 0 0 0 24 4.37z"/>
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-heading font-semibold text-gray-900">{member.name}</h3>
-                  <p className="text-brand-blue">{member.title}</p>
                 </motion.div>
               ))}
             </div>
