@@ -54,6 +54,11 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ items, viewAllLink, onClose }
     };
   }, [onClose]);
 
+  const handleItemClick = () => {
+    onClose();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <motion.div
       ref={dropdownRef}
@@ -75,10 +80,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ items, viewAllLink, onClose }
             <Link
               to={item.href}
               className="flex items-start p-3 rounded-md hover:bg-gray-50 transition-colors duration-200"
-              onClick={() => {
-                onClose();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
+              onClick={handleItemClick}
             >
               <div className="flex-shrink-0 mr-4 mt-1">
                 {getIcon(item.icon)}
@@ -94,10 +96,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ items, viewAllLink, onClose }
         <Link
           to={viewAllLink}
           className="flex items-center justify-between mt-2 p-3 text-brand-blue font-medium text-sm hover:bg-blue-50 rounded-md transition-colors duration-200"
-          onClick={() => {
-            onClose();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
+          onClick={handleItemClick}
         >
           <span>View All</span>
           <ArrowRight size={16} />

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -44,6 +43,8 @@ const ContactForm: React.FC = () => {
     setIsSubmitting(true);
     
     try {
+      console.log('Submitting form with data:', formState);
+      
       // Submit to Supabase
       const { error } = await supabase
         .from('contact_submissions')
@@ -56,19 +57,23 @@ const ContactForm: React.FC = () => {
           message: formState.message
         }]);
       
-      if (error) throw error;
+      if (error) {
+        console.error('Supabase error:', error);
+        throw error;
+      }
       
+      console.log('Form submitted successfully');
       toast({
-        title: "Message sent successfully!",
-        description: "We'll get back to you as soon as possible.",
+        title: "Message sent successfully! 🎉",
+        description: "Thank you for contacting us. We'll get back to you within 24 hours.",
         duration: 5000,
       });
       setFormState(initialFormState);
     } catch (error) {
       console.error("Error submitting form:", error);
       toast({
-        title: "Failed to send message",
-        description: "Please try again later.",
+        title: "Failed to send message ❌",
+        description: "Something went wrong. Please try again or contact us directly.",
         variant: "destructive",
         duration: 5000,
       });
