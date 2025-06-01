@@ -5,7 +5,6 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ContactForm from '@/components/contact/ContactForm';
 import { MapPin, Mail, Phone, Clock, ChevronDown } from 'lucide-react';
-import { Toaster } from '@/components/ui/toaster';
 import {
   Accordion,
   AccordionContent,
@@ -44,7 +43,6 @@ const Contact: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <Toaster />
       <main className="flex-grow">
         {/* Page Header */}
         <section className="bg-gradient-to-r from-brand-darkBlue to-brand-blue py-20 md:py-28">
@@ -180,8 +178,8 @@ const Contact: React.FC = () => {
           </div>
         </section>
         
-        {/* Modern FAQ Section with enhanced design */}
-        <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50">
+        {/* Modern FAQ Section */}
+        <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
           <div className="container mx-auto px-4 md:px-6">
             <motion.div 
               className="text-center max-w-3xl mx-auto mb-16"
@@ -190,92 +188,71 @@ const Contact: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-full text-brand-blue font-semibold text-sm mb-6 shadow-sm">
-                <span className="mr-2 text-lg">❓</span>
-                Got Questions? We Have Answers
+              <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-brand-blue font-medium text-sm mb-4">
+                ❓ Got Questions?
               </div>
-              <h2 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-6 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
                 Frequently Asked Questions
               </h2>
-              <p className="text-xl text-gray-600 leading-relaxed">
-                Find quick answers to common questions about working with us and our services
+              <p className="text-lg text-gray-600">
+                Find quick answers to common questions about working with us
               </p>
             </motion.div>
             
             <motion.div 
-              className="max-w-5xl mx-auto"
+              className="max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Accordion type="single" collapsible className="space-y-6">
+              <Accordion type="single" collapsible className="space-y-4">
                 {faqData.map((faq, index) => (
                   <AccordionItem 
                     key={index} 
                     value={`item-${index}`}
-                    className="bg-white rounded-3xl shadow-lg border-0 px-8 py-4 hover:shadow-xl transition-all duration-300 group"
+                    className="bg-white rounded-2xl shadow-sm border border-gray-100 px-6 py-2 hover:shadow-md transition-shadow duration-300"
                   >
-                    <AccordionTrigger className="text-left hover:no-underline py-8 [&[data-state=open]>div>div:last-child]:rotate-180">
-                      <div className="flex items-center w-full">
-                        <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl flex items-center justify-center mr-6 group-hover:scale-110 transition-transform duration-300">
-                          <span className="text-brand-blue font-bold text-lg">{String(index + 1).padStart(2, '0')}</span>
+                    <AccordionTrigger className="text-left hover:no-underline py-6">
+                      <div className="flex items-start">
+                        <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                          <span className="text-brand-blue font-bold text-sm">{index + 1}</span>
                         </div>
-                        <div className="flex-grow">
-                          <h3 className="text-xl font-bold text-gray-900 pr-4 group-hover:text-brand-blue transition-colors duration-300">
-                            {faq.question}
-                          </h3>
-                        </div>
-                        <div className="flex-shrink-0 w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-brand-blue group-hover:text-white">
-                          <ChevronDown className="h-4 w-4 transition-transform duration-300" />
-                        </div>
+                        <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                          {faq.question}
+                        </h3>
                       </div>
                     </AccordionTrigger>
-                    <AccordionContent className="pb-8">
-                      <div className="ml-18 pr-12">
-                        <div className="w-full h-px bg-gradient-to-r from-gray-200 to-transparent mb-6"></div>
-                        <p className="text-gray-700 leading-relaxed text-lg">
-                          {faq.answer}
-                        </p>
+                    <AccordionContent className="pb-6">
+                      <div className="ml-12 text-gray-600 leading-relaxed">
+                        {faq.answer}
                       </div>
                     </AccordionContent>
                   </AccordionItem>
                 ))}
               </Accordion>
               
-              {/* Enhanced CTA at the bottom of FAQ */}
+              {/* CTA at the bottom of FAQ */}
               <motion.div 
-                className="mt-16 text-center relative"
+                className="mt-12 text-center p-8 bg-gradient-to-r from-brand-blue to-brand-darkBlue rounded-2xl shadow-lg"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                <div className="bg-gradient-to-r from-brand-blue via-brand-darkBlue to-indigo-600 rounded-3xl shadow-2xl p-12 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-indigo-600/20 rounded-3xl"></div>
-                  <div className="relative z-10">
-                    <div className="inline-flex items-center px-4 py-2 bg-white/20 rounded-full text-white font-medium text-sm mb-4 backdrop-blur-sm">
-                      <Mail className="mr-2 h-4 w-4" />
-                      Need More Help?
-                    </div>
-                    <h3 className="text-3xl font-bold text-white mb-4">
-                      Still have questions?
-                    </h3>
-                    <p className="text-blue-100 mb-8 text-lg max-w-2xl mx-auto">
-                      Our expert team is here to help you every step of the way. Get personalized answers to your specific questions.
-                    </p>
-                    <a 
-                      href="mailto:info@gorantlainfotech.com"
-                      className="inline-flex items-center px-8 py-4 bg-white text-brand-blue font-bold rounded-2xl hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-                    >
-                      Get in Touch with Our Experts
-                      <Mail className="ml-3 h-5 w-5" />
-                    </a>
-                  </div>
-                  {/* Decorative elements */}
-                  <div className="absolute top-4 right-4 w-20 h-20 bg-white/10 rounded-full"></div>
-                  <div className="absolute bottom-4 left-4 w-16 h-16 bg-white/10 rounded-full"></div>
-                </div>
+                <h3 className="text-xl font-bold text-white mb-3">
+                  Still have questions?
+                </h3>
+                <p className="text-blue-100 mb-6">
+                  Our team is here to help you every step of the way
+                </p>
+                <a 
+                  href="mailto:info@gorantlainfotech.com"
+                  className="inline-flex items-center px-6 py-3 bg-white text-brand-blue font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-300"
+                >
+                  Get in Touch
+                  <Mail className="ml-2 h-4 w-4" />
+                </a>
               </motion.div>
             </motion.div>
           </div>
