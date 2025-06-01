@@ -6,7 +6,6 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { MapPin, Phone, Mail } from 'lucide-react';
 import { supabase } from "@/integrations/supabase/client";
 
 interface FormState {
@@ -62,6 +61,7 @@ const ContactForm: React.FC = () => {
       toast({
         title: "Message sent successfully!",
         description: "We'll get back to you as soon as possible.",
+        duration: 5000,
       });
       setFormState(initialFormState);
     } catch (error) {
@@ -70,6 +70,7 @@ const ContactForm: React.FC = () => {
         title: "Failed to send message",
         description: "Please try again later.",
         variant: "destructive",
+        duration: 5000,
       });
     } finally {
       setIsSubmitting(false);

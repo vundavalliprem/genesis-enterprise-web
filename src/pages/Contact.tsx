@@ -4,9 +4,42 @@ import { motion } from 'framer-motion';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ContactForm from '@/components/contact/ContactForm';
-import { MapPin, Mail, Phone, Clock } from 'lucide-react';
+import { MapPin, Mail, Phone, Clock, ChevronDown } from 'lucide-react';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const Contact: React.FC = () => {
+  const faqData = [
+    {
+      question: "How do you handle project pricing?",
+      answer: "We offer flexible pricing models including fixed price, time and materials, and dedicated team arrangements. We'll recommend the best approach based on your project requirements and provide transparent, detailed quotes with no hidden costs."
+    },
+    {
+      question: "What is your typical project timeline?",
+      answer: "Project timelines vary based on scope and complexity. Simple applications can be delivered in 4-8 weeks, while enterprise solutions may take 3-6 months. We provide detailed project plans with milestones and delivery schedules during the proposal phase."
+    },
+    {
+      question: "Do you offer ongoing support after project completion?",
+      answer: "Yes, we provide comprehensive post-launch support and maintenance services including bug fixes, feature updates, performance monitoring, and 24/7 technical support to ensure your application continues to perform optimally."
+    },
+    {
+      question: "How do you ensure the security of client data?",
+      answer: "We follow industry best practices for data security, including secure coding standards, encryption, regular security audits, and strict access controls. We comply with GDPR, HIPAA, and other relevant data protection regulations."
+    },
+    {
+      question: "What technologies do you specialize in?",
+      answer: "We specialize in modern tech stacks including React, Node.js, Python, AWS, Azure, microservices architecture, and cloud-native solutions. Our team stays updated with the latest technologies to deliver cutting-edge solutions."
+    },
+    {
+      question: "Can you work with our existing development team?",
+      answer: "Absolutely! We excel at collaborating with existing teams, whether you need additional resources, specialized expertise, or want us to take over specific components of your project while maintaining seamless integration."
+    }
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -145,47 +178,83 @@ const Contact: React.FC = () => {
           </div>
         </section>
         
-        {/* FAQ Section */}
-        <section className="py-16 bg-gray-50">
+        {/* Modern FAQ Section */}
+        <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="text-3xl font-heading font-bold text-gray-900 mb-4">
+            <motion.div 
+              className="text-center max-w-3xl mx-auto mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-brand-blue font-medium text-sm mb-4">
+                ❓ Got Questions?
+              </div>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
                 Frequently Asked Questions
               </h2>
-              <p className="text-gray-600">
+              <p className="text-lg text-gray-600">
                 Find quick answers to common questions about working with us
               </p>
-            </div>
+            </motion.div>
             
-            <div className="max-w-3xl mx-auto grid gap-6">
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-lg font-medium text-gray-900 mb-2">How do you handle project pricing?</h3>
-                <p className="text-gray-600">
-                  We offer flexible pricing models including fixed price, time and materials, and dedicated team arrangements. We'll recommend the best approach based on your project requirements.
-                </p>
-              </div>
+            <motion.div 
+              className="max-w-4xl mx-auto"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Accordion type="single" collapsible className="space-y-4">
+                {faqData.map((faq, index) => (
+                  <AccordionItem 
+                    key={index} 
+                    value={`item-${index}`}
+                    className="bg-white rounded-2xl shadow-sm border border-gray-100 px-6 py-2 hover:shadow-md transition-shadow duration-300"
+                  >
+                    <AccordionTrigger className="text-left hover:no-underline py-6">
+                      <div className="flex items-start">
+                        <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                          <span className="text-brand-blue font-bold text-sm">{index + 1}</span>
+                        </div>
+                        <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                          {faq.question}
+                        </h3>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-6">
+                      <div className="ml-12 text-gray-600 leading-relaxed">
+                        {faq.answer}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
               
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-lg font-medium text-gray-900 mb-2">What is your typical project timeline?</h3>
-                <p className="text-gray-600">
-                  Project timelines vary based on scope and complexity. We provide detailed project plans with milestones and delivery schedules during the proposal phase.
+              {/* CTA at the bottom of FAQ */}
+              <motion.div 
+                className="mt-12 text-center p-8 bg-gradient-to-r from-brand-blue to-brand-darkBlue rounded-2xl shadow-lg"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                <h3 className="text-xl font-bold text-white mb-3">
+                  Still have questions?
+                </h3>
+                <p className="text-blue-100 mb-6">
+                  Our team is here to help you every step of the way
                 </p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-lg font-medium text-gray-900 mb-2">Do you offer ongoing support after project completion?</h3>
-                <p className="text-gray-600">
-                  Yes, we provide comprehensive post-launch support and maintenance services to ensure your application continues to perform optimally.
-                </p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-lg font-medium text-gray-900 mb-2">How do you ensure the security of client data?</h3>
-                <p className="text-gray-600">
-                  We follow industry best practices for data security, including secure coding standards, regular security audits, and strict access controls. We comply with relevant data protection regulations.
-                </p>
-              </div>
-            </div>
+                <a 
+                  href="mailto:info@gorantlainfotech.com"
+                  className="inline-flex items-center px-6 py-3 bg-white text-brand-blue font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-300"
+                >
+                  Get in Touch
+                  <Mail className="ml-2 h-4 w-4" />
+                </a>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
       </main>

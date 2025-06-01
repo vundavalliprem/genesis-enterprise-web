@@ -25,6 +25,10 @@ const Footer: React.FC = () => {
     }
   };
 
+  const handleLinkClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="bg-gray-900 text-white pt-16 pb-8">
       <div className="container mx-auto px-4 md:px-6">
@@ -60,31 +64,51 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold mb-6 text-white">Services</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/services/application-development" className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center">
+                <Link 
+                  to="/services/application-development" 
+                  className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center"
+                  onClick={handleLinkClick}
+                >
                   <ArrowRight size={14} className="mr-2" />
                   <span>Application Development</span>
                 </Link>
               </li>
               <li>
-                <Link to="/services/software-consulting" className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center">
+                <Link 
+                  to="/services/software-consulting" 
+                  className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center"
+                  onClick={handleLinkClick}
+                >
                   <ArrowRight size={14} className="mr-2" />
                   <span>Software Consulting</span>
                 </Link>
               </li>
               <li>
-                <Link to="/services/cloud-services" className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center">
+                <Link 
+                  to="/services/cloud-services" 
+                  className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center"
+                  onClick={handleLinkClick}
+                >
                   <ArrowRight size={14} className="mr-2" />
                   <span>Amazon Cloud Services</span>
                 </Link>
               </li>
               <li>
-                <Link to="/services/qa-testing" className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center">
+                <Link 
+                  to="/services/qa-testing" 
+                  className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center"
+                  onClick={handleLinkClick}
+                >
                   <ArrowRight size={14} className="mr-2" />
                   <span>QA & Testing</span>
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-brand-blue hover:text-blue-400 transition-colors duration-300 flex items-center font-medium">
+                <Link 
+                  to="/services" 
+                  className="text-brand-blue hover:text-blue-400 transition-colors duration-300 flex items-center font-medium"
+                  onClick={handleLinkClick}
+                >
                   View All Services
                 </Link>
               </li>
@@ -95,25 +119,41 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold mb-6 text-white">Quick Links</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/about" className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center">
+                <Link 
+                  to="/about" 
+                  className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center"
+                  onClick={handleLinkClick}
+                >
                   <ArrowRight size={14} className="mr-2" />
                   <span>About Us</span>
                 </Link>
               </li>
               <li>
-                <Link to="/solutions" className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center">
+                <Link 
+                  to="/solutions" 
+                  className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center"
+                  onClick={handleLinkClick}
+                >
                   <ArrowRight size={14} className="mr-2" />
                   <span>Solutions</span>
                 </Link>
               </li>
               <li>
-                <Link to="/careers" className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center">
+                <Link 
+                  to="/careers" 
+                  className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center"
+                  onClick={handleLinkClick}
+                >
                   <ArrowRight size={14} className="mr-2" />
                   <span>Careers</span>
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center">
+                <Link 
+                  to="/contact" 
+                  className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center"
+                  onClick={handleLinkClick}
+                >
                   <ArrowRight size={14} className="mr-2" />
                   <span>Contact Us</span>
                 </Link>
